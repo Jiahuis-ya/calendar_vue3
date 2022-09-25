@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'homeHeader'
+  name: 'pageHeader'
 }
 </script>
 
@@ -20,7 +20,7 @@ export default {
   z-index: 1;
   width: 100%;
   height: .44rem;
-  background: #ed4040;
+  background: $headerColor;
   text-align: center;
   line-height: .44rem;
 
