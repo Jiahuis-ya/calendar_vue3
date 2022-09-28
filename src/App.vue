@@ -41,4 +41,11 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+  #app {
+    // 防止连续多次点击后报错https://blog.csdn.net/lijingshan34/article/details/88350456
+    touch-action: none;
+  }
+</style>
+
 
