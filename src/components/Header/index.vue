@@ -20,7 +20,7 @@ export default {
   z-index: 1;
   width: 100%;
   height: .44rem;
-  background: $headerColor;
+  background: $mainColor;
   text-align: center;
   line-height: .44rem;
 
