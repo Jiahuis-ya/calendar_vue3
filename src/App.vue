@@ -11,7 +11,7 @@ import MyHeader from '@/components/Header/index.vue';
 import PageTab from 'components/Tab/index.vue'
 import { computed } from 'vue';
 import { useStore } from 'vuex';
-// import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
   export default {
     name: 'App',
@@ -21,9 +21,9 @@ import { useStore } from 'vuex';
     },
     setup() {
       const store = useStore(),
-            state = store.state
-            // router = useRouter();
-      // router.push('/')
+            state = store.state,
+            router = useRouter();
+      router.push('/')
       
 
       return computed(() => state.header).value
