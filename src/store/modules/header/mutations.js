@@ -1,5 +1,6 @@
 export default {
-  setHeader(state, routerName) {
+  // 外部使用的时候默认忽略state， 不用传
+  setHeaderTitle(state, routerName) {
     switch (routerName) {
       case 'day':
         state.headerTitle = '当天信息';

@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import header from './modules/header/index.js'
+import headerStore from './modules/header/index.js'
 
 export default createStore({
   state: {
@@ -12,6 +12,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    header
+    headerStore
   }
 })
