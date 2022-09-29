@@ -5,6 +5,9 @@ const resolve = (src) => path.resolve(__dirname, src)
 module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
+    host: 'localhost',
+    open: true,
+    port: 8888,
     proxy: {
       // 聚合api 
       "/calendar": {
