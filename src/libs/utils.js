@@ -14,3 +14,44 @@ export const getIconDate = (type) => {
       return date.getFullYear().toString().substring(2);
   }
 }
+
+export function formatChisDate(date, type) {
+  const _arr = date.split('-');
+
+  switch(type) {
+    case 'day':
+      return `${_arr[0]}年${_arr[1]}月${_arr[2]}日`;
+    case 'month':
+      return `${_arr[0]}年${_arr[1]}月`;
+    case 'year':
+      return `${_arr[0]}年` ;
+    default:
+      return `${_arr[0]}年${_arr[1]}月${_arr[2]}日`;
+  }
+}
+
+export function mapChisDate(data, key) {
+  return data.map(item => {
+    item[key] = formatChisDate(item[key]);
+    return item;
+  })
+}
+
+export function getNowDate(field) {
+  const date = new Date();
+
+  let year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate();
+
+    switch(field) {
+      case 'day':
+        return `${year}-${month}-${day}`;
+      case 'month':
+        return `${year}-${month}`;
+      case 'year':
+        return `${year}`;
+      default:
+        return `${year}-${month}-${day}`;
+    }
+}

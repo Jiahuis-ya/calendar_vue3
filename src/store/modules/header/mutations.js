@@ -15,5 +15,24 @@ export default {
         state.headerTitle = '当天信息';
         break;
     }
+  },
+  setErrorCode(state, errorCode) {
+    state.errorCode = errorCode;
+  },
+  setData(state, payload) {
+    const { field, data } = payload;
+    switch (field) {
+      case 'day':
+        state.dayData = data;
+        break;
+      case 'month':
+        state.monthData = data;
+        break;
+      case 'year':
+        state.yearData = data;
+        break;
+      default:
+        break;
+    }
   }
 }

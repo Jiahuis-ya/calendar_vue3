@@ -37,10 +37,10 @@ export default {
 
 <style lang="scss" scoped>
 .search-wrap {
-  // position: fixed;
-  // top: .44rem;
-  // left: 0;
-  // z-index: 1;
+  position: fixed;
+  top: .44rem;
+  left: 0;
+  z-index: 1;
   width: 100%;
   height: .38rem;
   padding: .03rem .1rem;
