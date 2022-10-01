@@ -9,17 +9,17 @@ module.exports = defineConfig({
   devServer: {
     host: 'localhost',
     open: true,
-    port: 8888,
+    port: 8903,
     // TODO:暂时关闭，使用nginx代理
-    // proxy: {
-    //   // 聚合api 
-    //   "/calendar": {
-    //     target: "http://v.juhe.cn", // 目标地址
-    //     changeOrigin: true, // 是否改变源、换源
-    //     ws: true, // web socket开启
-    //     secure: false, // https检查
-    //   },
-    // },
+    proxy: {
+      // 聚合api 
+      "/calendar": {
+        target: "http://v.juhe.cn", // 目标地址
+        changeOrigin: true, // 是否改变源、换源
+        ws: true, // web socket开启
+        secure: false, // https检查
+      },
+    },
     // overlay: {
     //   warnings: false,
     //   errors: false
