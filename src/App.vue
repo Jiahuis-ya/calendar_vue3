@@ -33,7 +33,7 @@ export default {
     const store = useStore(),
           state = store.state,
           router = useRouter();
-    router.push('/year')
+    router.push('/')
     store.commit('headerStore/setPlaceholder', 'day')
     store.commit('headerStore/setMaxLength', 'day')
     
@@ -46,6 +46,9 @@ export default {
         store.commit('headerStore/setHeaderTitle', value)
         store.commit('headerStore/setPlaceholder', value)
         store.commit('headerStore/setMaxLength', value)
+        store.commit('headerStore/setField', value)
+        store.commit('headerStore/setField', value)
+        store.commit('headerStore/setErrorCode', 0);
       } 
     )
     

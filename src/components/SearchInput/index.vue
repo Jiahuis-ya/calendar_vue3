@@ -11,7 +11,10 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed, watch } from "vue";
+import { useStore } from 'vuex';
+import { formatUserDate, getNowDate } from '@/libs/utils'
+import getData from '@/services'
 
 export default {
   name: "searchInput",
@@ -20,11 +23,29 @@ export default {
     maxLength: Number,
     value: String
   }, 
-  setup() {
-    const inputValue = ref('');
-    const searchData = () => {
+  setup(props) {
+    const inputValue = ref(''),
+          store = useStore(),
+          state = store.state.headerStore;
+          console.log('state', state)
+
+    const searchData = (e) => {
+      inputValue.value = e.target.value;
+
+      const field = computed(() => state.field).value;
+      if(inputValue.value.length === props.maxLength) {
+        getData(store, field, formatUserDate(inputValue.value));
+      } else if(inputValue.value.length === 0) {
+        getData(store, field, getNowDate(field));
+      }
 
     }
+
+    watch(() => {
+      return state.field
+    }, () => {
+      inputValue.value = ''
+    })
 
     return {
       inputValue,

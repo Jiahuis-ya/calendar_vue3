@@ -18,7 +18,7 @@
 <style lang="scss" scoped>
   .list-item {
     @include setFlex($horizontal: flex-start, $align: center);
-    height: .44rem;
+    min-height: .44rem;
     margin-bottom: .15rem;
     border: 1px solid #ddd;
     background: #fff;
@@ -28,7 +28,7 @@
       height: 100%;
 
       &.title {
-        width: 1rem;
+        min-width: 1rem;
         font-size: .18rem;
         margin-right: .15rem;
         color: $mainColor;
