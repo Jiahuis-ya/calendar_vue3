@@ -55,3 +55,52 @@ export function getNowDate(field) {
         return `${year}-${month}-${day}`;
     }
 }
+
+export function formatUserDate(value) {
+  const len = value.length;
+  if(len < 4) {
+    return;
+  }
+
+  if(len === 4) {
+    return value;
+  }
+
+  // if(len > 4 && len === 5) {
+  if(len > 4 && len < 6)  {
+    return value.substr(0, 4);
+  }
+
+  let _arr = [],
+      patten;
+
+  // 6位或7位
+  if(len >= 6 && len < 8) {
+    patten = /(\d{4})(\d{2})/;
+    value = value.substr(0, 6).replace(patten, "$1-$2");
+  
+    _arr = Array.from(value).filter((item, index) => {
+      // 2015-04 -> 2015-4
+      if(index === 5 && item === '0') {
+        return false;
+      }
+      return true;
+    })
+  }
+
+  if(len >= 8) {
+    patten = /(\d{4})(\d{2})(\d{2})/;
+    value = value.substr(0, 8).replace(patten, "$1-$2-$3");
+  
+    _arr = Array.from(value).filter((item, index) => {
+      // 2015-04-30 -> 2015-4-30
+      if((index === 5 || index === 8) && item === '0') {
+        return false;
+      }
+      return true;
+    });
+    
+  }
+  // ['2','0','1','5','-'','4','-'','3','0'] -> 2015-4-30
+  return _arr.toString().replace(/,/g, '');
+}
