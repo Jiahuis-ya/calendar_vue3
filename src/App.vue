@@ -29,7 +29,7 @@ export default {
     const store = useStore(),
           state = store.state,
           router = useRouter();
-    router.push('/month')
+    router.push('/year')
     store.commit('headerStore/setPlaceholder', 'day')
     store.commit('headerStore/setMaxLength', 'day')
     
