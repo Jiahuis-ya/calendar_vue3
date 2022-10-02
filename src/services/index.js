@@ -27,7 +27,7 @@ export default async(store, field, date) => {
   }
 
   if(data.error_code !== 0) {
-    store.commit('setErrorCode', data.error_code);
+    store.commit('headerStore/setErrorCode', data.error_code);
     return;
   }
 

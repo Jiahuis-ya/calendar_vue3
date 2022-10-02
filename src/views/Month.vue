@@ -1,28 +1,41 @@
 <template>
-  <div>
-    MonthPage
+  <div class="container">
+    <error-tip />
+    <div v-if="!errorCode">
+     
+    </div>
   </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
-// import getData from '@/services'
+import { computed, onMounted, watch } from 'vue'
+import getData from '@/services'
+import { useStore } from 'vuex'
+import ErrorTip from '@/components/ErrorTip/index.vue'
+import { getNowDate } from '@/libs/utils.js'
 
 export default {
   name: "MonthPage",
+  components: {
+    ErrorTip,
+  },
   setup() {
+    const store = useStore(),
+          state = store?.state?.headerStore
+
     onMounted( () => {
-      // getData('month', '2022-9')
-      //   .then(res => {
-      //     console.log('success', res)
-      //   })
-      //   .catch(err => {
-      //     console.log('error', err)
-      //   })
+      getData(store, 'month', getNowDate('month'))
     })
 
+    watch(() => {
+      return state.monthData
+    }, () => {
+      store.commit('headerStore/setErrorCode', 0);
+    })
+    
     return {
-
+      monthData: computed(() => state.monthData),
+      errorCode: computed(() => state.errorCode)
     }
   }
 }

@@ -1,28 +1,32 @@
 <template>
-  <div>
-    YearPage
+  <div class="container">
+    <error-tip />
   </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
-// import getData from '@/services'
+import { computed, onMounted } from 'vue'
+import getData from '@/services'
+import { useStore } from 'vuex'
+import ErrorTip from '@/components/ErrorTip/index.vue'
+import { getNowDate } from '@/libs/utils.js'
 
 export default {
   name: "YearPage",
+  components: {
+    ErrorTip
+  },
   setup() {
+    const store = useStore(),
+          state = store?.state?.headerStore
+
     onMounted( () => {
-      // getData('year', '2022')
-      //   .then(res => {
-      //     console.log('success', res)
-      //   })
-      //   .catch(err => {
-      //     console.log('error', err)
-      //   })
+      getData(store, 'year', getNowDate('year'))
     })
-
+    
     return {
-
+      dayData: computed(() => state.yearData),
+      errorCode: computed(() => state.errorCode)
     }
   }
 }
