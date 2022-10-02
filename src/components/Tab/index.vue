@@ -53,6 +53,7 @@ export default {
       @include setFlex();
       width: 33.33%;
       height: 100%;
+      background: #fff;
     }
   }
 </style>

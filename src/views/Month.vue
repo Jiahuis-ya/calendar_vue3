@@ -2,7 +2,9 @@
   <div class="container">
     <error-tip />
     <div v-if="!errorCode">
-     
+      <card-list
+        :data="monthData"
+      />
     </div>
   </div>
 </template>
@@ -12,12 +14,14 @@ import { computed, onMounted, watch } from 'vue'
 import getData from '@/services'
 import { useStore } from 'vuex'
 import ErrorTip from '@/components/ErrorTip/index.vue'
+import CardList from '@/components/MonthPage/List/index.vue'
 import { getNowDate } from '@/libs/utils.js'
 
 export default {
   name: "MonthPage",
   components: {
     ErrorTip,
+    CardList
   },
   setup() {
     const store = useStore(),

@@ -29,7 +29,7 @@ export default {
     const store = useStore(),
           state = store.state,
           router = useRouter();
-    router.push('/')
+    router.push('/month')
     store.commit('headerStore/setPlaceholder', 'day')
     store.commit('headerStore/setMaxLength', 'day')
     
@@ -55,8 +55,8 @@ export default {
 
 <style lang="scss" scoped>
   #app2 {
-    // 防止连续多次点击后报错https://blog.csdn.net/lijingshan34/article/details/88350456
-    // touch-action: none;
+    // fix: 防止连续多次点击后报错https://blog.csdn.net/lijingshan34/article/details/88350456
+    touch-action: none;
   }
 </style>
 
