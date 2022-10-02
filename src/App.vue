@@ -4,9 +4,13 @@
     <search-input
       :placeholder="headerStore.placeholder"
       :maxLength="headerStore.maxLength"
-    ></search-input>
-    <router-view/>
-    <page-tab></page-tab>
+    />
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
+    <page-tab />
   </div>
 </template>
 
