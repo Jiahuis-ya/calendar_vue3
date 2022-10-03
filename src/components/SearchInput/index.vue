@@ -27,7 +27,6 @@ export default {
     const inputValue = ref(''),
           store = useStore(),
           state = store.state.headerStore;
-          console.log('state', state)
 
     const searchData = (e) => {
       inputValue.value = e.target.value;

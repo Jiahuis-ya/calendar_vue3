@@ -16,7 +16,6 @@ export default {
     }
   },
   setPlaceholder(state, routerName) {
-    console.log('setPlaceholder')
     const date = new Date();
 
     let year = date.getFullYear(),

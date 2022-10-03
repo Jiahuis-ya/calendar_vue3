@@ -28,3 +28,6 @@ a {color: #333;text-decoration: none;}
   padding: .82rem 0 .44rem 0;
   box-sizing: border-box;
 }
+
+
+/* html {touch-action: manipulation;} */
