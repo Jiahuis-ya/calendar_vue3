@@ -1,0 +1,6 @@
+/* 将盒子内的子元素用flex布局进行居中 */
+@mixin setFlex($horizontal: center, $align: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $horizontal;
+}
